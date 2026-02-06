@@ -39,23 +39,27 @@ export function SpiderWebBackground() {
       }
     }
     drawWeb()
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let rafId = 0
     // Animate subtle movement
-    let t = 0
-    function animate() {
-      if (!ctx) return
-      const centerX = width / 2
-      const centerY = height / 2
-      t += 0.01
-      ctx.save()
-      ctx.clearRect(0, 0, width, height)
-      ctx.translate(centerX, centerY)
-      ctx.rotate(Math.sin(t) * 0.01)
-      ctx.translate(-centerX, -centerY)
-      drawWeb()
-      ctx.restore()
-      requestAnimationFrame(animate)
+    if (!reduceMotion.matches) {
+      let t = 0
+      const animate = () => {
+        if (!ctx) return
+        const centerX = width / 2
+        const centerY = height / 2
+        t += 0.01
+        ctx.save()
+        ctx.clearRect(0, 0, width, height)
+        ctx.translate(centerX, centerY)
+        ctx.rotate(Math.sin(t) * 0.01)
+        ctx.translate(-centerX, -centerY)
+        drawWeb()
+        ctx.restore()
+        rafId = requestAnimationFrame(animate)
+      }
+      animate()
     }
-    animate()
     // Responsive resize
     function handleResize() {
       if (!canvas) return
@@ -65,7 +69,10 @@ export function SpiderWebBackground() {
       canvas.height = height
     }
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
   }, [])
 
   return (

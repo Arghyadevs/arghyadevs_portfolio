@@ -129,12 +129,12 @@ export interface ChatMessage {
 }
 
 export const generateAIResponse = async (
-  messages: ChatMessage[],
-  userMessage: string
+  messages: ChatMessage[]
 ): Promise<string> => {
+  const lastUserMessage = messages[messages.length - 1]?.content || ''
   if (!openai) {
     // Fallback to enhanced rule-based responses if AI is not available
-    return generateEnhancedResponse(userMessage);
+    return generateEnhancedResponse(lastUserMessage);
   }
 
   try {
@@ -148,8 +148,7 @@ export const generateAIResponse = async (
       model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: systemPrompt },
-        ...conversationHistory,
-        { role: "user", content: userMessage }
+        ...conversationHistory
       ],
       max_tokens: 500,
       temperature: 0.7,
@@ -157,10 +156,10 @@ export const generateAIResponse = async (
       frequency_penalty: 0.1
     });
 
-    return completion.choices[0]?.message?.content || generateEnhancedResponse(userMessage);
+    return completion.choices[0]?.message?.content || generateEnhancedResponse(lastUserMessage);
   } catch (error) {
     console.error('AI API Error:', error);
-    return generateEnhancedResponse(userMessage);
+    return generateEnhancedResponse(lastUserMessage);
   }
 };
 
