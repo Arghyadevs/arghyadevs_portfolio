@@ -75,7 +75,7 @@ function AboutSection() {
   const [greetIdx, setGreetIdx] = useState(0);
   const [showAltImg, setShowAltImg] = useState(true);
   const baseUrl = import.meta.env.BASE_URL
-  const primaryImg = `${baseUrl}assets/Arghya_devs.png`
+  const primaryImg = `${baseUrl}assets/Arghyadip.jpg`
   const secondaryImg = `${baseUrl}assets/Arghyalogo.png`
 
   useEffect(() => {
@@ -112,19 +112,24 @@ function AboutSection() {
         <div className="web-parallax">
           <div className="spider-light" aria-hidden="true" />
           <div className="glass-effect spider-panel web-swing web-delay flex flex-col items-center justify-center text-center gap-6 rounded-3xl p-10">
-          <div className="relative w-40 h-40 mb-4">
-            <img
-              src={secondaryImg}
-              alt="Arghyadip"
-              onError={(e) => { e.currentTarget.src = primaryImg }}
-              className={`w-40 h-40 object-cover rounded-2xl border-4 border-[#00ffd5] shadow-lg absolute inset-0 transition-opacity duration-1000 ${showAltImg ? 'opacity-0' : 'opacity-100'}`}
-            />
-            <img
-              src={primaryImg}
-              alt="Arghyadip"
-              onError={(e) => { e.currentTarget.src = secondaryImg }}
-              className={`w-40 h-40 object-cover rounded-2xl border-4 border-[#00ffd5] shadow-lg absolute inset-0 transition-opacity duration-1000 ${showAltImg ? 'opacity-100' : 'opacity-0'}`}
-            />
+          <div className="profile-orbit" aria-label="Profile portrait">
+            <span className="profile-orbit__stars" aria-hidden="true" />
+            <span className="profile-orbit__ring profile-orbit__ring--one" aria-hidden="true" />
+            <span className="profile-orbit__ring profile-orbit__ring--two" aria-hidden="true" />
+            <div className="profile-frame">
+              <img
+                src={secondaryImg}
+                alt="Arghyadip"
+                onError={(e) => { e.currentTarget.src = primaryImg }}
+                className={`profile-image transition-opacity duration-1000 ${showAltImg ? 'opacity-0' : 'opacity-100'}`}
+              />
+              <img
+                src={primaryImg}
+                alt="Arghyadip"
+                onError={(e) => { e.currentTarget.src = secondaryImg }}
+                className={`profile-image transition-opacity duration-1000 ${showAltImg ? 'opacity-100' : 'opacity-0'}`}
+              />
+            </div>
           </div>
           <h3 className="text-2xl md:text-3xl font-extrabold text-[#00ffd5] drop-shadow-lg min-h-[2.5em]">
             <span className={`animated-greeting ${greetings[greetIdx].className}`}>{greetings[greetIdx].text}</span>
@@ -1451,6 +1456,13 @@ function Home() {
       <HudNav />
       <div className="animated-bg min-h-screen flex flex-col relative">
         <div className="bg-tech"></div>
+        <div className="space-layer" aria-hidden="true">
+          <span className="space-planet planet-one" />
+          <span className="space-planet planet-two" />
+          <span className="space-planet planet-three" />
+          <span className="space-comet comet-one" />
+          <span className="space-comet comet-two" />
+        </div>
         <div className="bg-grid"></div>
         <div className="scanlines"></div>
         <div className="web-pattern"></div>
