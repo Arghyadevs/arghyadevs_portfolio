@@ -1457,11 +1457,21 @@ function Home() {
       <div className="animated-bg min-h-screen flex flex-col relative">
         <div className="bg-tech"></div>
         <div className="space-layer" aria-hidden="true">
+          <span className="space-dust" />
+          <span className="nebula-pulse" />
           <span className="space-planet planet-one" />
           <span className="space-planet planet-two" />
           <span className="space-planet planet-three" />
+          <span className="space-ring ring-one" />
+          <span className="space-ring ring-two" />
+          <span className="space-ring ring-three" />
           <span className="space-comet comet-one" />
           <span className="space-comet comet-two" />
+          <div className="meteor-shower">
+            <span className="meteor meteor-one" />
+            <span className="meteor meteor-two" />
+            <span className="meteor meteor-three" />
+          </div>
         </div>
         <div className="bg-grid"></div>
         <div className="scanlines"></div>
