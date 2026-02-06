@@ -1,6 +1,7 @@
 # Arghyadip Portfolio React
 
 This is a personal portfolio built with React, Vite, TypeScript, and Tailwind CSS.
+Last updated: 2026-02-06
 
 ## Setup
 
