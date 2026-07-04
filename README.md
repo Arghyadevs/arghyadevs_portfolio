@@ -1,94 +1,100 @@
-# Arghyadip Pakhira — Professional Portfolio
-A cinematic, HUD-style developer portfolio and conversational AI assistant console.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Arghyadevs/arghyadevs_portfolio/main/public/assets/readme-banner.svg" width="100%" alt="Cyber HUD Banner" />
+</p>
 
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
-[![Groq Cloud](https://img.shields.io/badge/Groq_Cloud-F58025?style=for-the-badge&logo=google-cloud&logoColor=white)](https://groq.com)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
+# Arghyadip Pakhira — Cybernetic Portfolio
+A cinematic, HUD-style personal developer terminal and conversational AI companion console.
 
----
-
-## Technical Overview
-
-This application is a responsive, high-performance portfolio website built using **Vite**, **React**, **TypeScript**, and **Tailwind CSS**. It incorporates professional design patterns, dark-theme HUD aesthetics, and a live AI chat assistant connected directly to the Groq API.
-
----
-
-## Core Features
-
-### ✦ Spectra AI Chatbot
-A fully interactive conversational panel located on the site.
-* **Powered by Groq API:** Interfaces with the high-performance `llama-3.1-8b-instant` model for sub-second responses.
-* **Speech Integration:** Supports microphone speech-to-text recognition and text-to-speech synthesized output.
-* **Context-Aware:** Fed with a structured portfolio data system prompt to answer questions about projects, experience, and skills accurately.
-
-### ✦ Visual Code Playground
-When the chatbot returns code snippets, they are rendered inside custom code windows mimicking a modern editor:
-* Three-dot console controls (Red / Yellow / Green).
-* Language tag indicators.
-* Live Copy-to-Clipboard action button that dynamically transitions to "COPIED" with a verification checkmark.
-
-### ✦ Multi-State Profile Slideshow
-Smoothly cycles through three visual assets using CSS-transition opacity fades every 3 seconds:
-* Original profile portrait (`Arghyadip.jpg`).
-* Alternate profile portrait (`Arghyadip_red.jpg`).
-* Personal developer brand logo (`Arghyalogo.png`).
-
-### ✦ Interactive Skills Matrix & HUD Timelines
-* **Interactive Tabs:** Active tab category triggers animated slide-down animations for skill nodes.
-* **Hover Radial Gradients:** Custom borders glow dynamically using modern CSS variables on hover.
+<p align="center">
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&amp;logo=react&amp;logoColor=61DAFB" alt="React" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&amp;logo=typescript&amp;logoColor=white" alt="TypeScript" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&amp;logo=vite&amp;logoColor=white" alt="Vite" /></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&amp;logo=tailwind-css&amp;logoColor=white" alt="Tailwind CSS" /></a>
+  <a href="https://groq.com"><img src="https://img.shields.io/badge/Groq_Cloud-F58025?style=for-the-badge&amp;logo=google-cloud&amp;logoColor=white" alt="Groq Cloud" /></a>
+  <a href="https://vercel.com"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&amp;logo=vercel&amp;logoColor=white" alt="Vercel" /></a>
+</p>
 
 ---
 
-## Development Setup
+## ✦ System Architecture
+This application is designed as a responsive, high-framerate dashboard mimicking movie-grade HUD (Heads-Up Display) environments. Built with modern web standards, it integrates smooth parallax, custom Canvas graphics, responsive grids, and API client pipelines.
 
-### Prerequisite: Set up the API Key
-To enable the live AI chatbot locally, configure your environment variables:
-
-1. Create a `.env.local` file in the root directory:
-   ```env
-   VITE_GROQ_API_KEY=your_groq_api_key_here
-   ```
-   *(Note: This file is ignored by git to secure your key).*
-
-### Local Installation
-1. Install project dependencies:
-   ```bash
-   npm install
-   ```
-2. Start the hot-reloading development server:
-   ```bash
-   npm run dev
-   ```
-3. Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Formatting & Quality Checks
-Validate and clean up the codebase using configured scripts:
-```bash
-# Run ESLint validation
-npm run lint
-
-# Format codebase with Prettier
-npm run format
+```
+[User Browser]
+      │
+      ├─► [Vite / React App] ──► Canvas Particle Cursors & AOS Animations
+      │
+      └─► [OpenAI SDK Adapter] (Vite-mode routing)
+                │
+                └─► [Groq Cloud Endpoint] ──► (Llama 3.1 8B Instant)
 ```
 
 ---
 
-## Production Deployment & Vercel Configuration
+## ✦ Advanced Core Modules
 
-To deploy the application to Vercel and ensure the AI chatbot works live:
+### 1. Spectra AI Chatbot (Groq Engine)
+A cybernetic dialogue unit styled as concentric rotating vector portals:
+* **LLM Model:** Powered by the ultra-low latency `llama-3.1-8b-instant` model on Groq.
+* **Context-Inject System:** Features an automated dynamic system prompt compiling projects, experience, and links in real-time.
+* **Inline Code Sandbox:** Intercepts markdown code blocks and compiles them into a custom terminal view with simulated window chrome controls (🔴 🟡 🟢) and custom copy handles.
+* **Microphone & Speech Synthesizer:** Direct Web Speech API links for voice control.
 
-1. Import your repository into **Vercel**.
-2. Go to the project **Settings** -> **Environment Variables**.
-3. Create a new variable:
-   * **Key:** `VITE_GROQ_API_KEY`
-   * **Value:** *[Your Groq API Key]*
-4. Keep the target checked for all environments (Production, Preview, Development) and click **Save**.
-5. Trigger a redeploy of the latest commit to bake the environment variable into the production build bundle.
+### 2. Multi-Portrait Slider
+Fades alternate image elements inside a neon-bordered viewport every 3000ms:
+* **Assets:** Cycles original portrait (`Arghyadip.jpg`), custom red shirt portrait (`Arghyadip_red.jpg`), and custom logo (`Arghyalogo.png`).
+* **Hardware Accelerated:** Uses CSS keyframe animations and opacity masking for high-performance layout painting.
+
+### 3. Glow Matrix Grid
+Hover nodes on the skills directory bind mouse positions dynamically:
+* Binds theme color tokens to inline React styles.
+* Triggers dynamic category switching with active animation key triggers.
 
 ---
 
-## License
-Created by Arghyadip Pakhira. All rights reserved.
+## ✦ Installation & Local Startup
+
+### 1. Setup Local Environment Variables
+Before running the server, configure your credentials:
+```bash
+# Create local environment config
+touch .env.local
+
+# Add your key inside .env.local
+VITE_GROQ_API_KEY=gsk_your_groq_api_key_here
+```
+
+### 2. Setup Commands
+Execute the terminal sequence to initialize dependencies and fire up Vite's server:
+```bash
+# Install dependencies
+npm install
+
+# Run hot-reloading development server
+npm run dev
+
+# Format and check quality
+npm run format
+npm run lint
+```
+
+---
+
+## ✦ Production Deployment on Vercel
+
+Ensure your hosted client has active credentials to communicate with Groq:
+
+1. Import this repository into your **Vercel** workspace.
+2. Go to **Settings** -> **Environment Variables**.
+3. Create a new environment variable:
+   * **Key:** `VITE_GROQ_API_KEY`
+   * **Value:** `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`
+4. Deploy the main branch. Vercel will bundle the configurations automatically during the production build.
+
+---
+
+## ✦ Developer Context
+* **Author:** Arghyadip Pakhira
+* **Email:** arghyadip.info@gmail.com
+* **Host Port:** `http://localhost:5173`
+* **Secure Node ID:** `616_NODE_SECURE`
