@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Arghyadevs/arghyadevs_portfolio/main/public/assets/readme-banner.svg" width="100%" alt="Cyber HUD Banner" />
+  <img src="./public/assets/readme-banner.svg" width="100%" alt="Cyber HUD Banner" />
 </p>
 
 # Arghyadip Pakhira — Cybernetic Portfolio
