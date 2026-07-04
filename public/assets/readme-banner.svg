@@ -107,7 +107,7 @@
   <text x="35" y="60" font-family="monospace" font-size="10" fill="rgba(0, 255, 213, 0.4)">NODE ID: 616_NODE_SECURE</text>
 
   <!-- Typing Text Header -->
-  <text x="35" y="115" font-family="Courier New, Courier, monospace" font-size="20" fill="#00ffd5" font-weight="bold">ARGHVATECH // CORE SYSTEMS</text>
+  <text x="35" y="115" font-family="Courier New, Courier, monospace" font-size="20" fill="#00ffd5" font-weight="bold">ARGHYADEVS // CORE SYSTEMS</text>
   <text x="35" y="145" font-family="monospace" font-size="13" fill="#fff" opacity="0.8">> Initializing portfolios and AI dashboard...<tspan class="cursor-blink" fill="#00ffd5">_</tspan></text>
 
   <!-- HUD Circle HUD Right -->
