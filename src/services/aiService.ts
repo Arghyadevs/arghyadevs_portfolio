@@ -111,12 +111,16 @@ const PORTFOLIO_CONTEXT = {
 
 // Create OpenAI client (will be initialized with API key)
 let openai: OpenAI | null = null;
+let aiModel = "gpt-3.5-turbo";
 
 export const initializeAI = (apiKey: string) => {
+  const isGroq = apiKey.startsWith("gsk_");
   openai = new OpenAI({
     apiKey: apiKey,
+    baseURL: isGroq ? "https://api.groq.com/openai/v1" : "https://api.openai.com/v1",
     dangerouslyAllowBrowser: true // Only for demo purposes
   });
+  aiModel = isGroq ? "llama-3.1-8b-instant" : "gpt-3.5-turbo";
 };
 
 export const isAIInitialized = () => openai !== null;
@@ -145,15 +149,15 @@ export const generateAIResponse = async (
     }));
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: aiModel,
       messages: [
         { role: "system", content: systemPrompt },
         ...conversationHistory
       ],
       max_tokens: 500,
       temperature: 0.7,
-      presence_penalty: 0.1,
-      frequency_penalty: 0.1
+      presence_penalty: aiModel.startsWith("llama") ? undefined : 0.1,
+      frequency_penalty: aiModel.startsWith("llama") ? undefined : 0.1
     });
 
     return completion.choices[0]?.message?.content || generateEnhancedResponse(lastUserMessage);
@@ -183,7 +187,12 @@ ${PORTFOLIO_CONTEXT.experience.map(e =>
 ).join('\n')}
 
 Contact: ${PORTFOLIO_CONTEXT.email}, ${PORTFOLIO_CONTEXT.phone}
-Social: LinkedIn, GitHub, Instagram, Twitter, Facebook
+Social Profiles:
+- LinkedIn: ${PORTFOLIO_CONTEXT.socialLinks.linkedin}
+- GitHub: ${PORTFOLIO_CONTEXT.socialLinks.github}
+- Instagram: ${PORTFOLIO_CONTEXT.socialLinks.instagram}
+- Twitter: ${PORTFOLIO_CONTEXT.socialLinks.twitter}
+- Facebook: ${PORTFOLIO_CONTEXT.socialLinks.facebook}
 
 Guidelines:
 1. Be conversational but professional

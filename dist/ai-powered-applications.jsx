@@ -143,6 +143,8 @@ export default function AiPoweredApplications() {
 
   // Console Easter Egg
   useEffect(() => {
+    //console.log("Hello World"); 
+    console.log("Assalamualaikum Lyari");
     console.log(
       `\n╔══════════════════════════════════════════════════════════════╗\n║                        STARK INDUSTRIES                      ║\n║                     AI SYSTEMS DIVISION                      ║\n║                                                              ║\n║  "The future is built by those who dare to dream in code."  ║\n║                          - Tony Stark                       ║\n║                                                              ║\n║  System Status: ONLINE                                       ║\n║  AI Modules: ACTIVE                                          ║\n║  Security Level: MAXIMUM                                     ║\n╚══════════════════════════════════════════════════════════════╝\n        `
     );
@@ -276,7 +278,7 @@ export default function AiPoweredApplications() {
             </svg>
           </button>
           <div
-            className={`nav-grid transition-all duration-300 md:grid md:static md:opacity-100 md:pointer-events-auto bg-transparent md:bg-transparent fixed top-0 left-0 w-full h-full bg-black/80 z-10 ${
+            className={`nav-grid transition-all duration-300 md:grid md:static md:opacity-100 md:pointer-events-auto fixed top-0 left-0 w-full h-full bg-black/80 md:bg-transparent z-10 ${
               isNavOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
           >
